@@ -46,7 +46,7 @@ if uploaded_file is not None:
     # img = cv2.imread(image)
 
     # Get Aruco marker
-    corners, _, _ = cv2.aruco.ArucoDetector(img, dictionary, parameters=parameters)
+    corners, _, _ = cv2.aruco.ArucoDetector.detectMarkers(img, dictionary, parameters)
     #corners, markerIds, rejectedCandidates = detector.detectMarkers(img)
 
     # Draw polygon around the marker
