@@ -21,7 +21,7 @@ with st.sidebar.expander("About the App"):
     
 #Add file uploader to allow users to upload photos
 uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
-wegiht = st.number_input('Insert the weight')
+weight = st.number_input('Insert the weight')
 day = st.number_input('Insert the day')
 option = st.selectbox('Orientation of the image',('H','W'))
 
@@ -34,7 +34,7 @@ if uploaded_file is not None:
     aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
 
    
-    model = YOLO('/Users/danukatheja/Downloads/yolo_shrimp/runs/detect/train2/weights/best.pt')
+    model = YOLO('last.pt')
     results = model(image)[0]
 
 
@@ -78,12 +78,12 @@ if uploaded_file is not None:
             object_width = xywh[i][2] / pixel_cm_ratio
             object_weight = 0.002*((object_width)**3.6546)
             object_count = int(1000/object_weight)
-            PDG = (object_weight - wegiht)/day
+            PDG = (object_weight - weight)/day
         elif option== 'H':
             object_width = xywh[i][3] / pixel_cm_ratio
             object_weight = 0.002*((object_width)**3.6546)
             object_count = int(1000/object_weight)
-            PDG = (object_weight - wegiht)/day
+            PDG = (object_weight - weight)/day
         else:
             st.write('input in the Orientation')
 
