@@ -35,7 +35,7 @@ if uploaded_file is not None:
 
     dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_50)
     parameters =  cv2.aruco.DetectorParameters()
-    detector = cv.aruco.ArucoDetector(dictionary, parameters)
+    detector = cv2.aruco.ArucoDetector(dictionary, parameters)
 
    
     model = YOLO('last.pt')
