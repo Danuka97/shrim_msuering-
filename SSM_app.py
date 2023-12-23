@@ -30,12 +30,12 @@ if uploaded_file is not None:
     image = cv2.imread(uploaded_file.name)
     
     # Load Aruco detector
-    parameters = cv2.aruco.DetectorParameters_create()
-    aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
+    # parameters = cv2.aruco.DetectorParameters_create()
+    # aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
 
-    # dictionary = cv2.aruco.getPredefinedDictionary(cv.aruco.DICT_4X4_250)
-    # parameters =  cv2.aruco.DetectorParameters()
-    # detector = cv.aruco.ArucoDetector(dictionary, parameters)
+    dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_50)
+    parameters =  cv2.aruco.DetectorParameters()
+    detector = cv.aruco.ArucoDetector(dictionary, parameters)
 
    
     model = YOLO('last.pt')
