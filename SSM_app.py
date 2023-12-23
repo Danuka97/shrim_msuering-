@@ -1,8 +1,8 @@
-import cv2
 import streamlit as st
 import numpy as np
 from PIL import Image
 from ultralytics import YOLO
+import cv2
 
 #Create two columns with different width
 col1, col2 = st.columns( [0.8, 0.2])
