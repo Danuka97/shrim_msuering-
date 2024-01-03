@@ -29,6 +29,7 @@ if uploaded_file is not None:
     img = cv2.imread(uploaded_file.name,0)
     if 'img' not in st.session_state:
         st.session_state['img'] = img
+    print(img)
     image = cv2.imread(uploaded_file.name)
     
     # Load Aruco detector
