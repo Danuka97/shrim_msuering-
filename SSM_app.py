@@ -42,6 +42,7 @@ if uploaded_file is not None:
     model = YOLO('last.pt')
     results = model(image)[0]
     st.image(uploaded_file)
+    st.image(img,caption="size measurement"))
 
 
     # Load Image
