@@ -26,11 +26,11 @@ day = st.number_input('Insert the day')
 option = st.selectbox('Orientation of the image',('H','W'))
 
 if uploaded_file is not None:
-    img = cv2.imread(uploaded_file.name,0)
-    if 'img' not in st.session_state:
-        st.session_state['img'] = img
-    print(img)
-    image = cv2.imread(uploaded_file.name)
+    # Convert the file to an OpenCV image
+    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    img = cv2.imdecode(file_bytes, 0)  # Read as grayscale
+    image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)  # Read as color image
+    #image = cv2.imread(uploaded_file.name)
     
     # Load Aruco detector
     parameters = cv2.aruco.DetectorParameters_create()
