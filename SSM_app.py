@@ -27,6 +27,8 @@ option = st.selectbox('Orientation of the image',('H','W'))
 
 if uploaded_file is not None:
     img = cv2.imread(uploaded_file.name,0)
+    if 'img' not in st.session_state:
+        st.session_state['img'] = img
     image = cv2.imread(uploaded_file.name)
     
     # Load Aruco detector
@@ -42,8 +44,8 @@ if uploaded_file is not None:
     model = YOLO('last.pt')
     results = model(image)[0]
     st.image(uploaded_file)
-    #st.image(img,caption="size measurement")
-    st.write(img.shape)
+    st.image(st.session_state.img,caption="size measurement")
+    #st.write(img.shape)
 
 
 
@@ -51,7 +53,7 @@ if uploaded_file is not None:
     # img = cv2.imread(image)
 
     # Get Aruco marker
-    corners, _, _ = cv2.aruco.detectMarkers(img, aruco_dict, parameters=parameters)
+    corners, _, _ = cv2.aruco.detectMarkers(st.session_state.img, aruco_dict, parameters=parameters)
     #corners, _, _ = cv2.aruco.ArucoDetector.detectMarkers(img, dictionary, parameters)
     #corners, markerIds, rejectedCandidates = detector.detectMarkers(img)
 
