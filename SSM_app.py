@@ -41,6 +41,7 @@ if uploaded_file is not None:
    
     model = YOLO('last.pt')
     results = model(image)[0]
+    st.image(image)
 
 
     # Load Image
