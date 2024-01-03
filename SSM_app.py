@@ -44,8 +44,8 @@ if uploaded_file is not None:
    
     model = YOLO('last.pt')
     results = model(image)[0]
-    st.image(uploaded_file)
-    st.image(st.session_state.img,caption="size measurement")
+    # st.image(uploaded_file)
+    # st.image(st.session_state.img,caption="size measurement")
     #st.write(img.shape)
 
 
