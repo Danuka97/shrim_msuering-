@@ -26,7 +26,7 @@ day = st.number_input('Insert the day')
 option = st.selectbox('Orientation of the image',('H','W'))
 
 if uploaded_file is not None:
-    img = cv2.imread(uploaded_file.name)
+    img = cv2.imread(uploaded_file.name,0)
     image = cv2.imread(uploaded_file.name)
     
     # Load Aruco detector
@@ -48,7 +48,7 @@ if uploaded_file is not None:
     # img = cv2.imread(image)
 
     # Get Aruco marker
-    corners, _, _ = cv2.aruco.detectMarkers(image, aruco_dict, parameters=parameters)
+    corners, _, _ = cv2.aruco.detectMarkers(img, aruco_dict, parameters=parameters)
     #corners, _, _ = cv2.aruco.ArucoDetector.detectMarkers(img, dictionary, parameters)
     #corners, markerIds, rejectedCandidates = detector.detectMarkers(img)
 
