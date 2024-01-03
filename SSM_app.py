@@ -54,7 +54,7 @@ if uploaded_file is not None:
     # img = cv2.imread(image)
 
     # Get Aruco marker
-    corners, _, _ = cv2.aruco.detectMarkers(st.session_state.img, aruco_dict, parameters=parameters)
+    corners, _, _ = cv2.aruco.detectMarkers(img, aruco_dict, parameters=parameters)
     #corners, _, _ = cv2.aruco.ArucoDetector.detectMarkers(img, dictionary, parameters)
     #corners, markerIds, rejectedCandidates = detector.detectMarkers(img)
 
