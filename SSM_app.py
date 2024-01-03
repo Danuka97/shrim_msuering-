@@ -31,7 +31,8 @@ if uploaded_file is not None:
     
     # Load Aruco detector
     parameters = cv2.aruco.DetectorParameters_create()
-    aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
+    #aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
+    aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_5X5_50)
 
     # dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_50)
     # parameters =  cv2.aruco.DetectorParameters()
