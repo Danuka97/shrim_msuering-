@@ -81,7 +81,9 @@ if uploaded_file is not None:
 
 
     # Draw objects boundaries
-    list = []
+    list_weight = []
+    list_len = []
+    list_pdg = []
     for i in range(xyxy.shape[0]):
         x1 = xywh[i][0]
         x2 = xywh[i][0]+xywh[i][2]
@@ -93,20 +95,25 @@ if uploaded_file is not None:
             object_weight = (0.002*(object_width**4) - 0.0578*(object_width**3) + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716)
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
-            list.append(object_weight)
+            list_weight.append(object_weight)
+            list_len.append(object_width)
+            list_pdg.append(PDG)
         elif option== 'H':
             object_width = (xywh[i][3] / pixel_cm_ratio)*0.74
             object_weight = (0.002*(object_width**4) - 0.0578*(object_width**3) + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716)
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
             list.append(object_weight)
+            list_weight.append(object_weight)
+            list_len.append(object_width)
+            list_pdg.append(PDG)
         else:
             st.write('input in the Orientation')
 
-        cv2.putText(image, "{} cm".format(round(object_width, 1)), (int(x1 - 50), int(y1 + 120)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
-        cv2.putText(image, "{} g".format(round(object_weight, 1)), (int(x1 - 50), int(y1 + 195)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
-        cv2.putText(image, "{} count".format(round(object_count, 1)), (int(x1 - 50), int(y1 + 255)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
-        cv2.putText(image, "{} pdg".format(round(PDG, 1)), (int(x1 - 50), int(y1 + 305)), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+        cv2.putText(image, "{} cm".format(round(object_width, 2)), (int(x1 - 50), int(y1 + 120)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
+        cv2.putText(image, "{} g".format(round(object_weight, 2)), (int(x1 - 50), int(y1 + 195)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
+        cv2.putText(image, "{} count".format(round(object_count, 2)), (int(x1 - 50), int(y1 + 255)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
+        cv2.putText(image, "{} pdg".format(round(PDG, 2)), (int(x1 - 50), int(y1 + 315)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
         cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     arr = np.array(list)
     sum = np.sum(arr)
