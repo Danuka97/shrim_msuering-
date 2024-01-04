@@ -87,15 +87,15 @@ if uploaded_file is not None:
         y1 = xywh[i][1]
         y2 = xywh[i][1]+xywh[i][3]
 
-        
+        0.002*object_width^4 - 0.0578*object_width^3 + 0.7526*object_width^2 - 3.5356*object_width + 5.8716
         if option== 'W':
-            object_width = xywh[i][2] / pixel_cm_ratio
-            object_weight = 0.002*((object_width)**3.6546)
+            object_width = (xywh[i][2] / pixel_cm_ratio)*0.74
+            object_weight = 0.002*(object_width)**4 - 0.0578*object_width^3 + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
         elif option== 'H':
-            object_width = xywh[i][3] / pixel_cm_ratio
-            object_weight = 0.002*((object_width)**3.6546)
+            object_width = (xywh[i][3] / pixel_cm_ratio)*0.74
+            object_weight = 0.002*(object_width)**4 - 0.0578*object_width^3 + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
         else:
