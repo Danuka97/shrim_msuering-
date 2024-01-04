@@ -81,6 +81,7 @@ if uploaded_file is not None:
 
 
     # Draw objects boundaries
+    list = []
     for i in range(xyxy.shape[0]):
         x1 = xywh[i][0]
         x2 = xywh[i][0]+xywh[i][2]
@@ -92,11 +93,13 @@ if uploaded_file is not None:
             object_weight = (0.002*(object_width**4) - 0.0578*(object_width**3) + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716)
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
+            list.append(object_weight)
         elif option== 'H':
             object_width = (xywh[i][3] / pixel_cm_ratio)*0.74
             object_weight = (0.002*(object_width**4) - 0.0578*(object_width**3) + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716)
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
+            list.append(object_weight)
         else:
             st.write('input in the Orientation')
 
@@ -105,4 +108,9 @@ if uploaded_file is not None:
         cv2.putText(image, "{} count".format(round(object_count, 1)), (int(x1 - 50), int(y1 + 255)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
         cv2.putText(image, "{} pdg".format(round(PDG, 1)), (int(x1 - 50), int(y1 + 305)), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
         cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    arr = numpy.array(lst)
+    sum = np.sum(arr)
+    avg = sum/xyxy.shape[0]
+    st.write("sum of the weight":,sum)
+    st.write("average of the weight":,avg)
     st.image(image, caption="size measurement")
