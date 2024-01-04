@@ -100,9 +100,9 @@ if uploaded_file is not None:
         else:
             st.write('input in the Orientation')
 
-        cv2.putText(image, "{} cm".format(round(object_width, 1)), (int(x1 - 50), int(y1 + 120)), cv2.FONT_HERSHEY_PLAIN, 4, (255, 0, 0), 5)
-        cv2.putText(image, "{} g".format(round(object_weight, 1)), (int(x1 - 50), int(y1 + 160)), cv2.FONT_HERSHEY_PLAIN, 4, (255, 0, 0), 5)
-        cv2.putText(image, "{} count".format(round(object_count, 1)), (int(x1 - 50), int(y1 + 190)), cv2.FONT_HERSHEY_PLAIN, 4, (255, 0, 0), 3)
-        cv2.putText(image, "{} pdg".format(round(PDG, 1)), (int(x1 - 50), int(y1 + 230)), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 3)
+        cv2.putText(image, "{} cm".format(round(object_width, 1)), (int(x1 - 50), int(y1 + 120)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
+        cv2.putText(image, "{} g".format(round(object_weight, 1)), (int(x1 - 50), int(y1 + 160)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
+        cv2.putText(image, "{} count".format(round(object_count, 1)), (int(x1 - 50), int(y1 + 190)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
+        cv2.putText(image, "{} pdg".format(round(PDG, 1)), (int(x1 - 50), int(y1 + 230)), cv2.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 3)
         cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     st.image(image, caption="size measurement")
