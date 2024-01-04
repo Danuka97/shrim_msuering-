@@ -112,9 +112,9 @@ if uploaded_file is not None:
             st.write('input in the Orientation')
 
         cv2.putText(image, "{} cm".format(round(object_width, 2)), (int(x1 - 50), int(y1 + 120)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
-        cv2.putText(image, "{} g".format(round(object_weight, 2)), (int(x1 - 50), int(y1 + 200)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
-        cv2.putText(image, "{} count".format(round(object_count, 2)), (int(x1 - 50), int(y1 + 265)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
-        cv2.putText(image, "{} pdg".format(round(PDG, 2)), (int(x1 - 50), int(y1 + 325)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
+        cv2.putText(image, "{} g".format(round(object_weight, 2)), (int(x1 - 50), int(y1 + 205)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
+        cv2.putText(image, "{} count".format(round(object_count, 2)), (int(x1 - 50), int(y1 + 275)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
+        cv2.putText(image, "{} pdg".format(round(PDG, 2)), (int(x1 - 50), int(y1 + 350)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
         cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         
     arr_weight = np.array(list_weight)
