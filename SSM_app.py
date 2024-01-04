@@ -108,7 +108,7 @@ if uploaded_file is not None:
         cv2.putText(image, "{} count".format(round(object_count, 1)), (int(x1 - 50), int(y1 + 255)), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 0), 6)
         cv2.putText(image, "{} pdg".format(round(PDG, 1)), (int(x1 - 50), int(y1 + 305)), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
         cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    arr = numpy.array(lst)
+    arr = np.array(lst)
     sum = np.sum(arr)
     avg = sum/xyxy.shape[0]
     st.write("sum of the weight:",sum)
