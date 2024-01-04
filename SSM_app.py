@@ -95,6 +95,7 @@ if uploaded_file is not None:
             object_weight = (0.002*(object_width**4) - 0.0578*(object_width**3) + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716)
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
+            
             list_weight.append(object_weight)
             list_len.append(object_width)
             list_pdg.append(PDG)
@@ -103,7 +104,7 @@ if uploaded_file is not None:
             object_weight = (0.002*(object_width**4) - 0.0578*(object_width**3) + 0.7526*(object_width**2) - (3.5356*object_width) + 5.8716)
             object_count = int(1000/object_weight)
             PDG = (object_weight - weight)/day
-            list.append(object_weight)
+    
             list_weight.append(object_weight)
             list_len.append(object_width)
             list_pdg.append(PDG)
