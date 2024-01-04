@@ -115,9 +115,24 @@ if uploaded_file is not None:
         cv2.putText(image, "{} count".format(round(object_count, 2)), (int(x1 - 50), int(y1 + 255)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
         cv2.putText(image, "{} pdg".format(round(PDG, 2)), (int(x1 - 50), int(y1 + 315)), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 0), 6)
         cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    arr = np.array(list)
-    sum = np.sum(arr)
-    avg = sum/xyxy.shape[0]
-    st.write("sum of the weight:",sum)
-    st.write("average of the weight:",avg)
+        
+    arr_weight = np.array(list_weight)
+    arr_len = np.array(list_len)
+    arr_pdg = np.array(list_pdg)
+    
+    sum_weight = np.sum(arr_weight)
+    sum_len = np.sum(arr_len)
+    sum_pdg = np.sum(arr_pdg)
+    
+    avg_weight = sum_weight/xyxy.shape[0]
+    avg_len = sum_len/xyxy.shape[0]
+    avg_pdg = sum_pdg/xyxy.shape[0]
+    
+    st.write("sum of the weight:",sum_weight)
+    st.write("average of the weight:",avg_weight)
+
+    st.write("average of the length:",avg_len)
+
+    st.write("average of the PDG:",avg_pdg)
+
     st.image(image, caption="size measurement")
