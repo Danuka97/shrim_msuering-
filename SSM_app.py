@@ -112,5 +112,5 @@ if uploaded_file is not None:
     sum = np.sum(arr)
     avg = sum/xyxy.shape[0]
     st.write("sum of the weight:",sum)
-    st.write("average of the weight":,avg)
+    st.write("average of the weight:",avg)
     st.image(image, caption="size measurement")
